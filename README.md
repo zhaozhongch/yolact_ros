@@ -35,7 +35,7 @@ The following is the launch file, where you can set the topic to subscribe and p
 </launch>
 ```
 Input image example  
-![Example Input](example_result/example.png)  
+![Example Input](example_result/input_image.png)  
 Output image example, only person  
 ![Example Output people](example_result/only_person.png)
 Output image example, all possible masks for object class in COCO dataset   
