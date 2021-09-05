@@ -34,7 +34,11 @@ The following is the launch file, where you can set the topic to subscribe and p
     </node>
 </launch>
 ```
-![Example](example_result/example.png)  
+Input image example
+![Example Input](example_result/example.png)  
+Output image example, only person
+![Example Output people](example_result/only_person.png)
+![Example Output all](example_result/all_masks.png)
 
 ### The following is the original README
 # **Y**ou **O**nly **L**ook **A**t **C**oefficien**T**s
