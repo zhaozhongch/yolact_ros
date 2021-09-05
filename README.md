@@ -20,7 +20,7 @@ Run launch file
 ```
 roslaunch yolact_ros pub_sub.launch
 ```
-The following is the launch file, where you can set the topic to subscribe and publish. You an subscribe any `sensor_msgs/Image` type topic. The published image is always a black/white image. In the publish image, the white part is where the mask is, otherwise black. You can set in the launch file to publish only `persons` or `all` the objects. 
+The following is the launch file, where you can set the topic to subscribe and publish. You an subscribe any `sensor_msgs/Image` type topic. The published image is always a black/white image. In the publish image, the white part (pixel intensity 255) is where the mask is, otherwise black (pixel intensity 0). You can set in the launch file to publish only `persons` or `all` the objects. 
 ```
 <launch>
     <param name="trained_model" type="string" value="/mnt/shared/catkin_ws/src/yolact_ros/weights/yolact_base_54_800000.pth" />
@@ -34,7 +34,7 @@ The following is the launch file, where you can set the topic to subscribe and p
     </node>
 </launch>
 ```
-![Example](exmaple_result/example.png)
+![Example](example_result/example.png)  
 
 ### The following is the original README
 # **Y**ou **O**nly **L**ook **A**t **C**oefficien**T**s
