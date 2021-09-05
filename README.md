@@ -1,3 +1,42 @@
+# A ros wrapper of Yolact
+Original code see [Yolact](https://github.com/dbolya/yolact)  
+Another similar package can be seen in [Yolact_ros](https://github.com/Eruvae/yolact_ros), from where you can see how to make ROS work with python3 if you are a ros melodic/kinect user.
+
+This ROS wrapper currently only works for the following function  
+1: Validation  
+2: Output gray scale mask  
+
+### Install
+```
+mkdir -p catkin_ws/src
+cd catkin_ws/src
+git clone https://github.com/zhaozhongch/yolact_ros.git
+cd ..
+catkin_make
+```
+
+### Use
+Run launch file  
+```
+roslaunch yolact_ros pub_sub.launch
+```
+The following is the launch file, where you can set the topic to subscribe and publish. You an subscribe any `sensor_msgs/Image` type topic. The published image is always a black/white image. In the publish image, the white part is where the mask is, otherwise black. You can set in the launch file to publish only `persons` or `all` the objects. 
+```
+<launch>
+    <param name="trained_model" type="string" value="/mnt/shared/catkin_ws/src/yolact_ros/weights/yolact_base_54_800000.pth" />
+    <param name="top_k" type="int" value="15" />
+    <param name="score_threshold" type="double" value="0.12" />
+    <param name="sub_topic" type="string" value="/gray_image0" />
+    <param name="pub_topic" type="string" value="/image_seg" />
+    <!-- currently only support detect "persons" or "all" objects-->
+    <param name="detect_objects" type="string" value="all" />
+    <node type="eval_sub_pub_image.py" pkg="yolact_ros" name="eval_sub_pub_image" output="screen">
+    </node>
+</launch>
+```
+![Example](exmaple_result/example.png)
+
+### The following is the original README
 # **Y**ou **O**nly **L**ook **A**t **C**oefficien**T**s
 ```
     ██╗   ██╗ ██████╗ ██╗      █████╗  ██████╗████████╗
